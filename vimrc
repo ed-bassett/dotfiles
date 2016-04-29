@@ -70,6 +70,7 @@ set textwidth=0
 set wrapmargin=0
 set sidescroll=1
 
+let g:alduin_Shout_Become_Ethereal = 1
 colorscheme alduin
 
 syntax on
