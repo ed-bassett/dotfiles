@@ -12,7 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/vim-easy-align'
