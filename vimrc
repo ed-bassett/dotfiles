@@ -61,6 +61,9 @@ xmap ga <Plug>(EasyAlign)
 
 vmap <C-N> :MultipleCursorsFind<Space>
 
+let g:ctrlp_use_caching = 0
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 "General
 set mouse=a
 set tabstop=2
