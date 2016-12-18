@@ -25,6 +25,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'isRuslan/vim-es6'
+Plugin 'slim-template/vim-slim'
 
 
 " All of your Plugins must be added before the following line
