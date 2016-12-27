@@ -87,3 +87,5 @@ let g:airline_theme = 'luna'
 
 syntax on
 
+"Ensure airline shows in single window
+set laststatus=2
