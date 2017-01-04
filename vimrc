@@ -26,6 +26,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'isRuslan/vim-es6'
 Plugin 'slim-template/vim-slim'
+Plugin 'derekwyatt/vim-scala'
+
+" TypeScript
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 
 
 " All of your Plugins must be added before the following line
@@ -49,6 +54,37 @@ let g:syntastic_typescript_tsc_fname = ''
 let g:syntastic_typescript_tsc_args = '--noImplicitAny --jsx react --target ES5'
 
 let g:syntastic_javascript_checkers = ['eslint']
+
+"rust
+let g:rust_recommended_style = 0
+
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+if has("gui_running")
+  " balloon info for symbol under cursor
+  set ballooneval
+  autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+endif
+
+"let g:typescript_compiler_binary = 'tsc'
+"let g:typescript_compiler_options = '--jsx react --noImplicitAny'
+"let g:syntastic_typescript_tsc_args = 'typings/tsd.d.ts --jsx react --noImplicitAny'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"let g:syntastic_rust_checkers = ['rustc']
+
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 let g:airline_powerline_fonts = 1
 
@@ -80,6 +116,8 @@ set textwidth=0
 set wrapmargin=0
 set sidescroll=1
 
+set gfn=Sauce\ Code\ Powerline\ Semibold:h11
+
 let g:alduin_Shout_Become_Ethereal = 1
 colorscheme alduin
 
@@ -87,5 +125,17 @@ let g:airline_theme = 'luna'
 
 syntax on
 
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set guioptions+=c
+
+"if has("gui_running")
+  "set fuoptions=maxvert,maxhorz
+  "au GUIEnter * set fullscreen
+"endif
+
 "Ensure airline shows in single window
 set laststatus=2
+
