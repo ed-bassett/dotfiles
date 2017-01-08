@@ -63,8 +63,8 @@ def clamp01(value)
 end
 
 newFile = contents.map { |l|
-  if /let s:alduin\.\w*\s*=/.match l
-    l.gsub(/'[#{hexChars}]{6}'/) do |code|
+  if /^\s*hi\s+\w+\s+/.match l
+    l.gsub(/#[#{hexChars}]{6}/) do |code|
       hexCode    = code.match(/[#{hexChars}]{6}/)[0]
       colour     = Color::RGB.by_hex(hexCode)
       #(Math.atan((brightened.brightness - 0.5) * 4.0) / Math.atan(1.0 * 4.0)) / 2.0 + 0.5
@@ -75,7 +75,7 @@ newFile = contents.map { |l|
       colourHSL.s = clamp01(3.0*colourHSL.s)
       mixColour  = lightColour.mix_with(darkColour, contrast * 100.0)
       newColour  = mixColour.mix_with(colourHSL.to_rgb, options[:amount])
-      "'#{newColour.hex}'"
+      "##{newColour.hex}"
     end
   else
     l
