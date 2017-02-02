@@ -1,3 +1,5 @@
+:autocmd!
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -27,6 +29,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'isRuslan/vim-es6'
 Plugin 'slim-template/vim-slim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'racer-rust/vim-racer'
+Plugin 'ed-bassett/vim-embiggen'
 
 " TypeScript
 Plugin 'Shougo/vimproc.vim'
@@ -131,11 +135,16 @@ set guioptions-=l
 set guioptions-=L
 set guioptions+=c
 
-"if has("gui_running")
-  "set fuoptions=maxvert,maxhorz
-  "au GUIEnter * set fullscreen
-"endif
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
+endif
 
 "Ensure airline shows in single window
 set laststatus=2
+
+nnoremap <silent> + :noautocmd call Resize(1)<CR>
+nnoremap <silent> - :noautocmd call Resize(-1)<CR>
+map <silent> <C-W>= :call WinEqualSize()<CR>
+autocmd VimResized * call ResetResize()
 
